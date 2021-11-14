@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        #avatar div{
+            height:458px;
+            width:174px;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+        #options {
+            position: relative;
+            left: 300px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js">
+        $(function() {
+            $("#options ul").on("click", "li", function(event) {
+                var avatarId = "#avatar-" + event.currentTarget.id;
+                $(avatarId).toggle();
+                var span = $(event.currentTarget).find("span");
+                if ($(avatarId).is(":visible")) {
+                    span.text("usuń");
+                    $(this).addClass("selected");
+                } else {
+                    span.text("dodaj");
+                    $(this).removeClass("selected");
+                }
+            });
+        });
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            let optHair = document.querySelector('#hair');
+            let optGlasses = document.querySelector('#glasses');
+            let optShirt = document.querySelector('#shirt');
+            let optTrousers = document.querySelector('#trousers');
+            optHair.onclick = function () {
+                let avatarHair = document.querySelector('#avatar-hair');
+                let span = optHair.querySelector("span");
+
+                if (avatarHair.style.display !== "block") {
+                    avatarHair.style.display = "block";
+                    optHair.style.fontWeight = "bold";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarHair.style.display = "none";
+                    optHair.style.fontWeight = "normal";
+                    span.innerHTML = "dodaj";
+                }
+            }
+            optGlasses.onclick = function () {
+                let avatarGlasses = document.querySelector('#avatar-glasses');
+                let span = optGlasses.querySelector("span");
+
+                if (avatarGlasses.style.display !== "block") {
+                    avatarGlasses.style.display = "block";
+                    optGlasses.style.fontWeight = "bold";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarGlasses.style.display = "none";
+                    optGlasses.style.fontWeight = "normal";
+                    span.innerHTML = "dodaj";
+                }
+            }
+            optShirt.onclick = function () {
+                let avatarShirt = document.querySelector('#avatar-shirt');
+                let span = optShirt.querySelector("span");
+
+                if (avatarShirt.style.display !== "block") {
+                    avatarShirt.style.display = "block";
+                    optShirt.style.fontWeight = "bold";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarShirt.style.display = "none";
+                    optShirt.style.fontWeight = "normal";
+                    span.innerHTML = "dodaj";
+                }
+            }
+            optTrousers.onclick = function () {
+                let avatarTrousers = document.querySelector('#avatar-trousers');
+                let span = optTrousers.querySelector("span");
+
+                if (avatarTrousers.style.display !== "block") {
+                    avatarTrousers.style.display = "block";
+                    optTrousers.style.fontWeight = "bold";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarTrousers.style.display = "none";
+                    optTrousers.style.fontWeight = "normal";
+                    span.innerHTML = "dodaj";
+                }
+            }
+        });
+    </script>
+    <!-- <script>    
+        window.onload = function() {
+            var optGlasses = document.getElementById("glasses");
+            optGlasses.onclick = function() {
+                var avatarGlasses = document.getElementById("avatar-glasses");
+                var span = optGlasses.getElementsByTagName("span")[0];
+                if (avatarGlasses.style.display !== "block") {
+                    avatarGlasses.style.display = "block";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarGlasses.style.display = "none";
+                    span.innerHTML = "dodaj";
+                }
+            }
+            var optHair = document.getElementById("hair");
+            optHair.onclick = function() {
+                var avatarHair = document.getElementById("avatar-hair");
+                var span = optHair.getElementsByTagName("span")[0];
+                if (avatarHair.style.display !== "block") {
+                    avatarHair.style.display = "block";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarHair.style.display = "none";
+                    span.innerHTML = "dodaj";
+                }
+            }
+            var optShirt = document.getElementById("shirt");
+            optShirt.onclick = function() {
+                var avatarShirt = document.getElementById("avatar-shirt");
+                var span = optShirt.getElementsByTagName("span")[0];
+                if (avatarShirt.style.display !== "block") {
+                    avatarShirt.style.display = "block";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarShirt.style.display = "none";
+                    span.innerHTML = "dodaj";
+                }
+            }
+            var optTrousers = document.getElementById("trousers");
+            optTrousers.onclick = function() {
+                var avatarTrousers = document.getElementById("avatar-trousers");
+                var span = optTrousers.getElementsByTagName("span")[0];
+                if (avatarTrousers.style.display !== "block") {
+                    avatarTrousers.style.display = "block";
+                    span.innerHTML = "usuń";
+                } else {
+                    avatarTrousers.style.display = "none";
+                    span.innerHTML = "dodaj";
+                }
+            }
+        }
+    </script> -->
+    <title>The Simpson</title>
+</head>
+<body>
+    <div id="avatar">
+        <div id="avatar-base" style="background-image: url(images/sim.png)"></div>
+        <div id="avatar-glasses" style="background-image: url(images/glasses.png)"></div>
+        <div id="avatar-hair" style="background-image: url(images/hair.png)"></div>
+        <div id="avatar-shirt" style="background-image: url(images/shirt.png)"></div>
+        <div id="avatar-trousers" style="background-image: url(images/trousers.png)"></div>
+    </div>
+    <div id="options">
+        <h2>Co mam zrobić?</h2>
+        <ul>
+        <li id="hair"><a href="#"><span>dodaj</span> włosy</a></li>
+        <li id="glasses"><a href="#"><span>dodaj</span> okulary</a></li>
+        <li id="shirt"><a href="#"><span>dodaj</span> koszulkę</a></li>
+        <li id="trousers"><a href="#"><span>dodaj</span> spodnie</a></li>
+        </ul>
+    </div>  
+</body>
+</html>
